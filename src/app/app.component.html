@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6">
+    <div style="display: block;" class="chart">
+      <div class="col">
+        <div *ngIf="chart">
+            <canvas  id="canvas">{{chart}}</canvas>
+          </div>        
+       </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" style="margin-bottom: 10px">
+    <select class="  btn-success btn-lg  " type="button" name="select" [(ngModel)]="SelectedCourse" (change)="Filter($event.target.value)">
+    <option  *ngFor="let item of cities" value="{{item.city}}" >{{item.city}}</option>
+  </select>
+  <select class="  btn-success btn-lg  " type="button" name="select1" [(ngModel)]="SelectedCourse" (change)="Filter($event.target.value)"  >
+  <option  *ngFor="let item of units" value="{{item.unit}}" >{{item.unit}}</option>
+</select>
+  </div>
+</div>
+<div class="col-md-6" style="margin-bottom: 10px">
+  <table class="table table-responsive table-condensed">
+      <thead class="thead-dark">
+    <tr>
+      <th>Fecha</th>
+      <th>Maxima temperatura</th>
+      <th>minima temperatura</th>
+    </tr>
+  </thead>
+
+  <tr *ngFor="let d of data">
+      <td *ngFor="let date of datasets">{{date.data}}</td>
+    </tr>  
+  <tr *ngFor="let d of data">
+      <td *ngFor="let max of datasets">{{max.data}}</td>
+    </tr>
+    <tr *ngFor="let d of data">
+      <td *ngFor="let min of datasets">{{mai.data}}</td>
+    </tr>
+
+  </table>
+</div>
